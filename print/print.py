@@ -11,17 +11,25 @@ def capture_screen():
 
     # Gera um nome de arquivo único usando a data e hora
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    filename = f"screenshot_{timestamp}.png"
+    filename = f"{varglobal}.png"
+    attglobal()
     # Salva a captura de tela com o nome de arquivo gerado
-    screenshot.save(f"print\\{filename}")
+    screenshot.save(f"print\\imagens\\{filename}")
     print(f"Screenshot salva como {filename}")
 # Criar janela principal
 root = tk.Tk()
 root.title("Captura de Tela")
 root.geometry("150x50")
 
+def attglobal():
+    global varglobal
+    varglobal +=1
+
 # Criar botão
+varglobal = 11
 capture_button = tk.Button(root, text="Capturar Tela", command=capture_screen)
+
+
 
 capture_button.pack(pady=10)
 
